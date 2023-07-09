@@ -44,7 +44,7 @@ class RecognitionViewModel : ViewModel() {
             }
     }
 
-    fun createGrid(height: Int, width: Int) : Grid {
+    fun createGrid(height: Int, width: Int): Grid {
         val cells = arrayOfNulls<Int>(height * width)
         symbols.forEach { symbol ->
             val rect = symbol.boundingBox

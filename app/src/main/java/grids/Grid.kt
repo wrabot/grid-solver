@@ -12,5 +12,5 @@ abstract class Grid(val width: Int, val cells: List<Cell>) {
 
     abstract fun solve()
 
-    abstract fun isValid() : Boolean
+    abstract fun isValid(): Boolean
 }
