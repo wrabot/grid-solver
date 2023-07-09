@@ -21,7 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.wrabot.solver.R
-import com.wrabot.solver.ui.theme.GameTheme
+import com.wrabot.solver.ui.theme.GridSolverTheme
 import com.wrabot.tools.compose.BackStack
 import com.wrabot.tools.compose.CrossSlide
 
@@ -29,7 +29,7 @@ import com.wrabot.tools.compose.CrossSlide
 @Preview(name = "Dark Mode", uiMode = Configuration.UI_MODE_NIGHT_YES, showSystemUi = true)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainFlow() = GameTheme {
+fun MainFlow() = GridSolverTheme {
     Surface(Modifier.fillMaxSize()) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             val backStack by remember { mutableStateOf(BackStack<State>(State.SelectImage)) }

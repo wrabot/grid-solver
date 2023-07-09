@@ -2,5 +2,6 @@
     <string name="app_name">Grid solver</string>
     <string name="select_image">Choisir une image</string>
     <string name="next">Continuer</string>
+    <string name="select_size">Choisir une taille</string>
     <string name="solve">Résoudre</string>
 </resources>

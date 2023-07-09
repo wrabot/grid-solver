@@ -1,6 +1,7 @@
 package com.wrabot.solver.ui
 
 import android.graphics.Bitmap
+import grids.Grid
 
 sealed class State(private val ordinal: Int) : Comparable<State> {
     override fun compareTo(other: State) = ordinal.compareTo(other.ordinal)
