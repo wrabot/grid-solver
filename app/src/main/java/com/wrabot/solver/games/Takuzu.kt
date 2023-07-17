@@ -17,8 +17,8 @@ class Takuzu(grid: Grid<Char?>) : Game(grid, listOf('0', '1')) {
                     cell.value = it
                     // isValid
                     rows.allDistinct() && columns.allDistinct() &&
-                            rows.checkCount() && columns.checkCount() &&
-                            rows.checkTriples() && columns.checkTriples()
+                        rows.checkCount() && columns.checkCount() &&
+                        rows.checkTriples() && columns.checkTriples()
                 }.also { if (it != null) isModified = true }
             }
         } while (isModified)
