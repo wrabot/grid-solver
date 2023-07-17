@@ -23,8 +23,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.wrabot.solver.R
-import com.wrabot.solver.ui.theme.DarkColorScheme
-import com.wrabot.solver.ui.theme.LightColorScheme
 import com.wrabot.tools.compose.BackStack
 import com.wrabot.tools.compose.CrossSlide
 

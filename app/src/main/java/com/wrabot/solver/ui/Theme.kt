@@ -1,4 +1,4 @@
-package com.wrabot.solver.ui.theme
+package com.wrabot.solver.ui
 
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
