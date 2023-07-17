@@ -30,12 +30,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.wrabot.solver.R
-import grids.Grid
+import com.wrabot.solver.games.Game
+import com.wrabot.solver.games.Takuzu
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RecognitionScreen(bitmap: Bitmap, viewModel: RecognitionViewModel = viewModel(), onRecognize: (Grid) -> Unit) {
+fun RecognitionScreen(bitmap: Bitmap, viewModel: RecognitionViewModel = viewModel(), onRecognize: (Game) -> Unit) {
     LaunchedEffect(bitmap) { viewModel.recognize(bitmap) }
     val coroutineScope = rememberCoroutineScope()
     val sheetState = rememberModalBottomSheetState()
@@ -62,10 +63,10 @@ fun RecognitionScreen(bitmap: Bitmap, viewModel: RecognitionViewModel = viewMode
     }
     if (sheetState.isVisible) {
         ModalBottomSheet(onDismissRequest = {}, sheetState = sheetState) {
-            Text(stringResource(R.string.select_size), Modifier.padding(16.dp))
+            Text(stringResource(R.string.select_title), Modifier.padding(16.dp))
             listOf(8, 10, 12, 14).forEach {
                 Divider()
-                Text(it.toString(), Modifier.fillMaxWidth().clickable { onRecognize(viewModel.createGrid(it, it)) }.padding(16.dp))
+                Text(stringResource(R.string.select_tazuku, it), Modifier.fillMaxWidth().clickable { onRecognize(Takuzu(viewModel.createGrid(it, it))) }.padding(16.dp))
             }
         }
     }

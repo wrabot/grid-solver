@@ -46,7 +46,7 @@ fun MainFlow() = GridSolverTheme {
                 when (state) {
                     State.SelectImage -> SelectImageScreen { backStack.next(State.Recognition(it)) }
                     is State.Recognition -> RecognitionScreen(state.bitmap) { backStack.current = State.Solve(it) }
-                    is State.Solve -> SolveScreen(state.grid)
+                    is State.Solve -> SolveScreen(state.game)
                 }
             }
         }

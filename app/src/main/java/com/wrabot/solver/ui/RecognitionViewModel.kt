@@ -9,13 +9,12 @@ import androidx.lifecycle.ViewModel
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
-import grids.Grid
-import grids.Takuzu
+import com.wrabot.solver.grids.Grid
 
 class RecognitionViewModel : ViewModel() {
-    data class Symbol(val value: Int, val boundingBox: RectF) {
+    data class Symbol(val value: Char, val boundingBox: RectF) {
         override fun equals(other: Any?): Boolean = other is Symbol && value == other.value && boundingBox.intersect(other.boundingBox)
-        override fun hashCode() = value
+        override fun hashCode() = value.code
     }
 
     var symbols by mutableStateOf(emptyList<Symbol>())
@@ -30,7 +29,7 @@ class RecognitionViewModel : ViewModel() {
                     }
                 }.mapNotNull { symbol ->
                     Symbol(
-                        value = symbol.text.toIntOrNull() ?: return@mapNotNull null,
+                        value = symbol.text.firstOrNull() ?: return@mapNotNull null,
                         boundingBox = symbol.boundingBox?.let {
                             RectF(
                                 it.left.toFloat() / bitmap.width,
@@ -44,14 +43,14 @@ class RecognitionViewModel : ViewModel() {
             }
     }
 
-    fun createGrid(height: Int, width: Int): Grid {
-        val cells = arrayOfNulls<Int>(height * width)
+    fun createGrid(height: Int, width: Int): Grid<Char?> {
+        val cells = arrayOfNulls<Char?>(height * width)
         symbols.forEach { symbol ->
             val rect = symbol.boundingBox
             val r = (rect.centerY() * height).toInt()
             val c = (rect.centerX() * width).toInt()
             cells[r * width + c] = symbol.value
         }
-        return Takuzu(width, cells.toList())
+        return Grid(height, width, cells.toList())
     }
 }

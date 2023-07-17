@@ -14,17 +14,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.wrabot.solver.R
+import com.wrabot.solver.games.Game
 import com.wrabot.solver.ui.theme.GridStyle
-import grids.Grid
+import com.wrabot.solver.grids.Grid
+import com.wrabot.solver.games.Takuzu
 
 @Composable
-fun SolveScreen(grid: Grid) {
+fun SolveScreen(game: Game) {
     Column(Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-        var text by remember { mutableStateOf(grid.toString()) }
+        var text by remember { mutableStateOf(game.toString()) }
         Text(text, Modifier.weight(1f), style = GridStyle)
         Button(onClick = {
-            grid.solve()
-            text = grid.toString()
+            game.solve()
+            text = game.toString()
         }) {
             Text(stringResource(R.string.solve))
         }
