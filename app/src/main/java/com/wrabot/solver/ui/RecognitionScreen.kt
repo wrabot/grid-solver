@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.wrabot.solver.R
 import com.wrabot.solver.game.Game
+import com.wrabot.solver.game.Sudoku
 import com.wrabot.solver.game.Takuzu
 import com.wrabot.solver.grid.GridStack
 import kotlinx.coroutines.launch
@@ -65,6 +66,13 @@ fun RecognitionScreen(bitmap: Bitmap, viewModel: RecognitionViewModel = viewMode
     if (sheetState.isVisible) {
         ModalBottomSheet(onDismissRequest = {}, sheetState = sheetState) {
             Text(stringResource(R.string.select_title), Modifier.padding(16.dp))
+            Divider()
+            Text(
+                text = stringResource(R.string.select_sudoku),
+                modifier = Modifier.fillMaxWidth().clickable {
+                    onRecognize(Sudoku(GridStack(viewModel.createGrid(9, 9))))
+                }.padding(16.dp)
+            )
             listOf(8, 10, 12, 14).forEach {
                 Divider()
                 Text(
