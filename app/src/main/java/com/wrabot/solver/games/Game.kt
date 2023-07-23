@@ -8,5 +8,5 @@ abstract class Game(grid: Grid<Char?>, val values: List<Char>) {
 
     override fun toString() = stack.current.toString()
 
-    abstract fun solve()
+    abstract fun solve() : Boolean
 }

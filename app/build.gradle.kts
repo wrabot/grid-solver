@@ -40,4 +40,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
     implementation("com.github.wrabot.AndroidKotlinTools:tools-compose:0.14")
     implementation("com.google.android.gms:play-services-mlkit-text-recognition:19.0.0")
+
+    testImplementation("junit:junit:4.13.2")
 }

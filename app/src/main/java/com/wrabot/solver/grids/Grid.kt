@@ -5,8 +5,6 @@ open class Grid<T>(val height: Int, val width: Int, val cells: List<T>) {
         if (cells.size != height * width) throw IllegalArgumentException("invalid cells size")
     }
 
-    fun isComplete() = cells.all { it != null }
-
     operator fun get(row: Int, column: Int) = cells.getOrNull(row * width + column)
 
     override fun toString() = cells.chunked(width).joinToString("\n") { row ->

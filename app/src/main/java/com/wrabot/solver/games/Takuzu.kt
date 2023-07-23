@@ -6,7 +6,7 @@ import com.wrabot.solver.grids.Grid
 class Takuzu(grid: Grid<Char?>) : Game(grid, listOf('0', '1')) {
     data class Cell(val row: Int, val column: Int, var value: Char?)
 
-    override fun solve() {
+    override fun solve() : Boolean {
         val grid = stack.current.toGrid { row, column, value -> Cell(row, column, value) }
         val rows = (0 until grid.height).map { row -> grid.cells.filter { it.row == row } }
         val columns = (0 until grid.width).map { column -> grid.cells.filter { it.column == column } }
@@ -23,6 +23,7 @@ class Takuzu(grid: Grid<Char?>) : Game(grid, listOf('0', '1')) {
             }
         } while (isModified)
         stack.add(grid.toGrid { _, _, cell -> cell.value })
+        return stack.current.cells.all { it != null }
     }
 
     private fun List<List<Cell>>.allDistinct() = filter { row -> row.all { it.value != null } }
