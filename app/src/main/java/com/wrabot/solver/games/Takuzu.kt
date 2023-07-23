@@ -3,7 +3,7 @@ package com.wrabot.solver.games
 import com.wrabot.solver.grids.Grid
 
 @Suppress("SpellCheckingInspection")
-class Takuzu(grid: Grid<Char?>) : Game(grid, listOf('0', '1')) {
+class Takuzu(grid: Grid<Char?>) : Game(grid, setOf('0', '1')) {
     data class Cell(val row: Int, val column: Int, var value: Char?)
 
     override fun solve() : Boolean {
