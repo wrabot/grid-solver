@@ -1,6 +1,6 @@
-package com.wrabot.solver.games
+package com.wrabot.solver.game
 
-import com.wrabot.solver.grids.Grid
+import com.wrabot.solver.grid.Grid
 
 @Suppress("SpellCheckingInspection")
 class Takuzu(grid: Grid<Char?>) : Game(grid, setOf('0', '1')) {

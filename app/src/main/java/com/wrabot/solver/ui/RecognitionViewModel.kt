@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
-import com.wrabot.solver.grids.Grid
+import com.wrabot.solver.grid.Grid
 
 class RecognitionViewModel : ViewModel() {
     data class Symbol(val value: Char, val boundingBox: RectF) {

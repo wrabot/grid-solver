@@ -30,8 +30,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.wrabot.solver.R
-import com.wrabot.solver.games.Game
-import com.wrabot.solver.games.Takuzu
+import com.wrabot.solver.game.Game
+import com.wrabot.solver.game.Takuzu
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)

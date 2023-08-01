@@ -1,7 +1,7 @@
 package com.wrabot.solver.ui
 
 import android.graphics.Bitmap
-import com.wrabot.solver.games.Game
+import com.wrabot.solver.game.Game
 
 sealed class State(private val ordinal: Int) : Comparable<State> {
     override fun compareTo(other: State) = ordinal.compareTo(other.ordinal)

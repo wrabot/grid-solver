@@ -1,4 +1,4 @@
-package com.wrabot.solver.grids
+package com.wrabot.solver.grid
 
 import java.util.LinkedList
 
