@@ -1,7 +1,6 @@
 package com.wrabot.solver.grid
 
-
-open class Grid<T>(val height: Int, val width: Int, val cells: List<T>) {
+class Grid<T>(val height: Int, val width: Int, val cells: List<T>) {
     init {
         if (cells.size != height * width) throw IllegalArgumentException("invalid cells size")
     }

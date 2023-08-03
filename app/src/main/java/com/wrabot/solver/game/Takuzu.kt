@@ -1,12 +1,13 @@
 package com.wrabot.solver.game
 
 import com.wrabot.solver.grid.Grid
+import com.wrabot.solver.grid.GridStack
 
 @Suppress("SpellCheckingInspection")
-class Takuzu(grid: Grid<Char?>) : Game(grid, setOf('0', '1')) {
+class Takuzu(initial: Grid<Char?>) : Game(GridStack(initial), setOf('0', '1')) {
     data class Cell(val row: Int, val column: Int, var value: Char?)
 
-    override fun solve() : Boolean {
+    override fun solve(): Boolean {
         val grid = stack.current.toGrid { row, column, value -> Cell(row, column, value) }
         val rows = (0 until grid.height).map { row -> grid.cells.filter { it.row == row } }
         val columns = (0 until grid.width).map { column -> grid.cells.filter { it.column == column } }

@@ -1,13 +1,8 @@
 package com.wrabot.solver.grid
 
-import java.util.LinkedList
-
-class GridStack<T>(initial: Grid<T>) {
-    var current = initial
-        private set
-
-    private val undo = LinkedList<Grid<T>>()
-    private val redo = LinkedList<Grid<T>>()
+class GridStack<T>(var current: Grid<T>) {
+    private val undo = mutableListOf<Grid<T>>()
+    private val redo = mutableListOf<Grid<T>>()
 
     fun add(grid: Grid<T>) {
         if (grid == current) return
