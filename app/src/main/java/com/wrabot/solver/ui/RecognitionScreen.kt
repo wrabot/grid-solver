@@ -32,6 +32,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.wrabot.solver.R
 import com.wrabot.solver.game.Game
 import com.wrabot.solver.game.Takuzu
+import com.wrabot.solver.grid.GridStack
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -66,7 +67,12 @@ fun RecognitionScreen(bitmap: Bitmap, viewModel: RecognitionViewModel = viewMode
             Text(stringResource(R.string.select_title), Modifier.padding(16.dp))
             listOf(8, 10, 12, 14).forEach {
                 Divider()
-                Text(stringResource(R.string.select_tazuku, it), Modifier.fillMaxWidth().clickable { onRecognize(Takuzu(viewModel.createGrid(it, it))) }.padding(16.dp))
+                Text(
+                    text = stringResource(R.string.select_tazuku, it),
+                    modifier = Modifier.fillMaxWidth().clickable {
+                        onRecognize(Takuzu(GridStack(viewModel.createGrid(it, it))))
+                    }.padding(16.dp)
+                )
             }
         }
     }
