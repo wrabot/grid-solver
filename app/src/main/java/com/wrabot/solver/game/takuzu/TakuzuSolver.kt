@@ -2,7 +2,7 @@ package com.wrabot.solver.game.takuzu
 
 import com.wrabot.solver.grid.Grid
 
-class TakuzuSolver(private val grid: Grid<Cell>, private val values: Set<Char>) {
+class TakuzuSolver(val grid: Grid<Cell>, private val values: Set<Char>) {
     fun solve() {
         val rows = (0 until grid.height).map { row -> grid.cells.filter { it.row == row } }
         val columns = (0 until grid.width).map { column -> grid.cells.filter { it.column == column } }
