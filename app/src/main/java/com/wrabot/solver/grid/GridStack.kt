@@ -1,5 +1,8 @@
 package com.wrabot.solver.grid
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class GridStack<T>(var current: Grid<T>) {
     private val undo = mutableListOf<Grid<T>>()
     private val redo = mutableListOf<Grid<T>>()

@@ -33,7 +33,7 @@ import com.wrabot.tools.compose.CrossSlide
 fun MainFlow() = MaterialTheme(colorScheme = if (isSystemInDarkTheme()) DarkColorScheme else LightColorScheme) {
     Surface(Modifier.fillMaxSize()) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            val backStack by remember { mutableStateOf(BackStack<State>(State.SelectImage)) }
+            val backStack by remember { mutableStateOf(BackStack<State>(State.Select)) }
             TopAppBar(
                 title = { Text(stringResource(R.string.app_name)) },
                 navigationIcon = {
@@ -45,7 +45,7 @@ fun MainFlow() = MaterialTheme(colorScheme = if (isSystemInDarkTheme()) DarkColo
             BackHandler(backStack.hasBack()) { backStack.back() }
             CrossSlide(backStack.current) { state ->
                 when (state) {
-                    State.SelectImage -> SelectImageScreen { backStack.next(State.Recognition(it)) }
+                    State.Select -> SelectImageScreen({ backStack.next(State.Solve(it)) }) { backStack.next(State.Recognition(it)) }
                     is State.Recognition -> RecognitionScreen(state.bitmap) { backStack.current = State.Solve(it) }
                     is State.Solve -> SolveScreen(state.game)
                 }

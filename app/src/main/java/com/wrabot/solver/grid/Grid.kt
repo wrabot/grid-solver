@@ -1,5 +1,8 @@
 package com.wrabot.solver.grid
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class Grid<T>(val height: Int, val width: Int, val cells: List<T>) {
     init {
         if (cells.size != height * width) throw IllegalArgumentException("invalid cells size")

@@ -3,8 +3,10 @@ package com.wrabot.solver.game
 import com.wrabot.solver.game.takuzu.Cell
 import com.wrabot.solver.game.takuzu.TakuzuSolver
 import com.wrabot.solver.grid.GridStack
+import kotlinx.serialization.Serializable
 
-class Takuzu(override val stack: GridStack<Char?>) : Game {
+@Serializable
+class Takuzu(override val stack: GridStack<Char?>) : Game() {
     override val values = setOf('0', '1')
 
     override fun solve() {

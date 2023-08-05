@@ -1,9 +1,13 @@
 package com.wrabot.solver.game
 
 import com.wrabot.solver.grid.GridStack
+import kotlinx.serialization.Serializable
+import java.util.UUID
 
-sealed interface Game {
-    val stack: GridStack<Char?>
-    val values: Set<Char>
-    fun solve()
+@Serializable
+sealed class Game {
+    val id : String = UUID.randomUUID().toString()
+    abstract val stack: GridStack<Char?>
+    abstract val values: Set<Char>
+    abstract fun solve()
 }
