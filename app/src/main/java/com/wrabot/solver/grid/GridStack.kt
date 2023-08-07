@@ -16,11 +16,31 @@ data class GridStack<T>(var current: Grid<T>) {
 
     fun hasUndo() = undo.isNotEmpty()
     fun undo() {
-        if (undo.isNotEmpty()) current = undo.removeLast()
+        if (undo.isNotEmpty()) {
+            redo.add(0, current)
+            current = undo.removeLast()
+        }
+    }
+    fun undoAll() {
+        if (undo.isNotEmpty()) {
+            current = undo.removeFirst()
+            redo.addAll(0, undo)
+            undo.clear()
+        }
     }
 
     fun hasRedo() = redo.isNotEmpty()
     fun redo() {
-        if (redo.isNotEmpty()) current = redo.removeFirst()
+        if (redo.isNotEmpty()) {
+            undo.add(current)
+            current = redo.removeLast()
+        }
+    }
+    fun redoAll() {
+        if (redo.isNotEmpty()) {
+            current = redo.removeLast()
+            undo.addAll(redo)
+            redo.clear()
+        }
     }
 }

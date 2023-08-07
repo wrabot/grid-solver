@@ -39,6 +39,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    implementation("androidx.compose.material:material-icons-extended:1.4.3")
     implementation("com.github.wrabot.AndroidKotlinTools:tools-compose:0.14")
     implementation("com.google.android.gms:play-services-mlkit-text-recognition:19.0.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-cbor:1.5.1")

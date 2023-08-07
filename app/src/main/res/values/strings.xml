@@ -5,4 +5,8 @@
     <string name="select_title">Choisir un jeu</string>
     <string name="select_tazuku">Tazuku %d</string>
     <string name="solve">Résoudre</string>
+    <string name="stack_start">Début</string>
+    <string name="stack_previous">Précédent</string>
+    <string name="stack_next">Suivant</string>
+    <string name="stack_end">Fin</string>
 </resources>

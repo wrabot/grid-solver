@@ -1,8 +1,20 @@
 package com.wrabot.solver.ui
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.FirstPage
+import androidx.compose.material.icons.filled.LastPage
+import androidx.compose.material.icons.filled.NavigateBefore
+import androidx.compose.material.icons.filled.NavigateNext
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -40,6 +52,23 @@ fun SolveScreen(game: Game) {
                 fontSize = 20.sp,
             )
         )
+        with(game.stack) {
+            Row(Modifier.fillMaxWidth(), Arrangement.SpaceEvenly) {
+                IconButton(onClick = { undoAll() }, enabled = hasUndo()) {
+                    Icon(Icons.Default.FirstPage, stringResource(R.string.stack_start))
+                }
+                IconButton(onClick = { undo() }, enabled = hasUndo()) {
+                    Icon(Icons.Default.NavigateBefore, stringResource(R.string.stack_previous))
+                }
+                IconButton(onClick = { redo() }, enabled = hasRedo()) {
+                    Icon(Icons.Default.NavigateNext, stringResource(R.string.stack_next))
+                }
+                IconButton(onClick = { redoAll() }, enabled = hasRedo()) {
+                    Icon(Icons.Default.LastPage, stringResource(R.string.stack_end))
+                }
+            }
+        }
+        Spacer(Modifier.size(16.dp))
         Button(onClick = {
             game.solve()
             text = game.toString()
