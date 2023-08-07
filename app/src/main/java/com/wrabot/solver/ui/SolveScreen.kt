@@ -15,10 +15,20 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.wrabot.solver.R
 import com.wrabot.solver.game.Game
+import com.wrabot.solver.game.Takuzu
+import com.wrabot.solver.grid.Grid
+import com.wrabot.solver.grid.GridStack
+
+@Preview(showBackground = true)
+@Composable
+fun SolveScreenPreview() = SolveScreen(Takuzu(GridStack(Grid(10, 10, List(100) {
+    '0' + (Math.random() * 2).toInt()
+}))))
 
 @Composable
 fun SolveScreen(game: Game) {

@@ -6,7 +6,7 @@ import com.wrabot.solver.grid.GridStack
 import kotlinx.serialization.Serializable
 
 @Serializable
-class Takuzu(override val stack: GridStack<Char?>) : Game() {
+data class Takuzu(override val stack: GridStack<Char?>) : Game() {
     override val values = setOf('0', '1')
 
     override fun solve() {
