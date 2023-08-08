@@ -24,9 +24,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -46,12 +43,7 @@ fun SolveScreenPreview() = SolveScreen(Takuzu(GridStack(Grid(10, 10, List(100) {
 fun SolveScreen(game: Game) {
     Column(Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         var text by remember { mutableStateOf(game.toString()) }
-        Text(
-            text, Modifier.weight(1f), style = TextStyle.Default.copy(
-                fontFamily = FontFamily(listOf(Font(R.font.source_code_pro_regular))),
-                fontSize = 20.sp,
-            )
-        )
+        Text(text, Modifier.weight(1f), fontSize = 20.sp, fontFamily = fontFamily)
         with(game.stack) {
             Row(Modifier.fillMaxWidth(), Arrangement.SpaceEvenly) {
                 IconButton(onClick = { undoAll() }, enabled = hasUndo()) {

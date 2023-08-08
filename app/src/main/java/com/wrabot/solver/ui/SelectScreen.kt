@@ -27,9 +27,6 @@ import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -68,10 +65,8 @@ fun SelectImageScreen(onSelectGame: (Game) -> Unit, onSelectImage: (Bitmap) -> U
                             onClick = { onSelectGame(it) },
                             onLongClick = { Recents.remove(it) }
                         ),
-                        style = TextStyle.Default.copy(
-                            fontFamily = FontFamily(listOf(Font(R.font.source_code_pro_regular))),
-                            fontSize = 14.sp,
-                        )
+                        fontSize = 14.sp,
+                        fontFamily = fontFamily
                     )
                 } ?: CircularProgressIndicator()
             }

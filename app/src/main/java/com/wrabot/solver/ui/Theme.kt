@@ -3,6 +3,11 @@ package com.wrabot.solver.ui
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import com.wrabot.solver.R
+
+val fontFamily = FontFamily(listOf(Font(R.font.source_code_pro_regular)))
 
 val DarkColorScheme = darkColorScheme(
     primary = Color(0xFFb1c5ff),
